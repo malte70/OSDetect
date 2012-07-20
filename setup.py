@@ -41,7 +41,7 @@ setup( name         = 'OSDetect',
        py_modules   = ['OSDetect'],
        license      = 'License :: OSI Approved :: BSD License',
        classifiers  = [
-                       'Developement Status :: 4 - Beta',
+                       'Development Status :: 4 - Beta',
                        'Environment :: Plugins',
 							  'Intended Audience :: Developers',
 							  'License :: OSI Approved :: BSD License',
