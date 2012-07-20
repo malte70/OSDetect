@@ -32,11 +32,28 @@
 from distutils.core import setup
 
 setup( name         = 'OSDetect',
-		 version      = '0.20120712',
-		 description  = 'A simple helper module to get details on the current operating system platorm.',
-		 author       = 'Malte Bublitz',
-		 author_email = 'me@malte-bublitz.de',
-		 url          = 'http://osdetect.malte-bublitz.de',
-		 download_url = 'http://osdetect.malte-bublitz.de/download/',
-		 py_modules   = ['OSDetect']
-		 )
+       version      = '0.20120720',
+       description  = 'A simple helper module to get details on the current operating system platorm.',
+       author       = 'Malte Bublitz',
+       author_email = 'me@malte-bublitz.de',
+       url          = 'http://osdetect.malte-bublitz.de',
+       download_url = 'http://osdetect.malte-bublitz.de/download/',
+       py_modules   = ['OSDetect'],
+       license      = 'License :: OSI Approved :: BSD License',
+       classifiers  = [
+                       'Developement Status :: 4 - Beta',
+                       'Environment :: Plugins',
+							  'Intended Audience :: Developers',
+							  'License :: OSI Approved :: BSD License',
+							  'Operating System :: Microsoft :: Windows',
+							  'Operating System :: Microsoft :: Windows :: Windows 7',
+							  'Operating System :: Microsoft :: Windows :: Windows Server 2003',
+							  'Operating System :: Microsoft :: Windows :: Windows Server 2008',
+							  'Operating System :: Microsoft :: Windows :: Windows Vista',
+							  'Operating System :: Microsoft :: Windows :: Windows XP',
+							  'Operating System :: POSIX',
+							  'Operating System :: POSIX :: Linux',
+							  'Programming Language :: Python',
+							  'Topic :: Software Development :: Libraries :: Python Modules',
+							  ]
+     )
