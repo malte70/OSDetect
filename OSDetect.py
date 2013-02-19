@@ -44,11 +44,20 @@ class OSInfo(object):
 			self.GetLinuxInfo()
 		elif sys.platform.startswith("win") or sys.platform.startswith("cygwin"):
 			self.GetWinNTInfo()
+		elif sys.platform.startswith("darwin"):
+			self.GetOSXInfo()
 		
 	def GetLinuxInfo(self):
 		self.info["OS"] = platform.system()
 		self.info["OSVersion"] = platform.uname()[2]
 		self.info["Distribution"] = " ".join(platform.dist())
+		self.info["Machine"] = platform.machine()
+		self.info["Python"] = self.GetPythonInfo()
+		
+	def GetOSXInfo(self):
+		self.info["OS"] = platform.system()
+		self.info["OSVersion"] = platform.uname()[2]
+		self.info["Distribution"] = "Mac OS X " + platform.mac_ver()[0]
 		self.info["Machine"] = platform.machine()
 		self.info["Python"] = self.GetPythonInfo()
 		

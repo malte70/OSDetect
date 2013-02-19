@@ -32,7 +32,7 @@
 from distutils.core import setup
 
 setup( name         = 'OSDetect',
-       version      = '0.20120720',
+       version      = '0.20130219',
        description  = 'A simple helper module to get details on the current operating system platorm.',
        author       = 'Malte Bublitz',
        author_email = 'me@malte-bublitz.de',
@@ -53,6 +53,7 @@ setup( name         = 'OSDetect',
 							  'Operating System :: Microsoft :: Windows :: Windows XP',
 							  'Operating System :: POSIX',
 							  'Operating System :: POSIX :: Linux',
+                                                          'Operating System :: MacOS :: MacOS X',
 							  'Programming Language :: Python',
 							  'Topic :: Software Development :: Libraries :: Python Modules',
 							  ]

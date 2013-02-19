@@ -11,8 +11,8 @@ or the hardware platform.
 Supported operating systems
 ---------------------------
 
-As of now, only GNU/Linux and Windows NT are supported. At the moment, I'm
-working on support for a wider range of operating systems.
+As of now, only GNU/Linux, Mac OS X and Windows NT are supported. At the
+moment, I'm working on support for a wider range of operating systems.
 
 Note thst the information available on the different platforms may differ.
 
@@ -26,4 +26,4 @@ Since OSDetect uses setuptools, you simply need to run
 
 Malte Bublitz
 Bergkamen, Germany
-July 20th, 2012
+February 19th, 2013
