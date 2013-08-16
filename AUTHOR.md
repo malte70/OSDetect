@@ -2,16 +2,11 @@ OSDetect author information
 ===========================
 
 Malte Bublitz
+-------------
 
-Contact
--------
-
- * web: https://malte-bublitz.de
- * mail: me@malte-bublitz.de
- * location: Bergkamen, NRW, Germany
- * Facebook: Malte Bublitz
+ * Personal website: https://malte-bublitz.de
+ * EMail: me@malte-bublitz.de
+ * Location: Bergkamen, Germany
  * Twitter: @malte70
- * Google+: +Malte Bublitz
  * github: malte70
- * launchpad: ~malte70
- * coderwall: malte70
+ * github page: http://malte70.github.io

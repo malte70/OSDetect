@@ -4,7 +4,7 @@
 # OSDetect.py
 #    A simple solution to detect the operating system, including detection of wine
 #
-# Copyright © 2012 Malte Bublitz, https://malte-bublitz.de
+# Copyright © 2012-2013 Malte Bublitz, https://malte-bublitz.de
 # All rights reserved.
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -37,6 +37,12 @@ except ImportError:
 	pass
 
 class OSInfo(object):
+	"""Operating System Information object
+	
+	When creating an object of this class, the __init__()-function
+	obtains all information. You can get the information as an dict using
+	the GetInfo()-method.
+	"""
 	def __init__(self):
 		self.info = {}
 		# Linux detection
@@ -48,6 +54,7 @@ class OSInfo(object):
 			self.GetOSXInfo()
 		
 	def GetLinuxInfo(self):
+		"""Get the Information, this method contains the GNU/Linux-specific logic."""
 		self.info["OS"] = platform.system()
 		self.info["OSVersion"] = platform.uname()[2]
 		self.info["Distribution"] = " ".join(platform.dist())
@@ -55,6 +62,7 @@ class OSInfo(object):
 		self.info["Python"] = self.GetPythonInfo()
 		
 	def GetOSXInfo(self):
+		"""Get the Information, this method contains the Mac OS X-specific logic."""
 		self.info["OS"] = platform.system()
 		self.info["OSVersion"] = platform.uname()[2]
 		self.info["Distribution"] = "Mac OS X " + platform.mac_ver()[0]
@@ -62,6 +70,7 @@ class OSInfo(object):
 		self.info["Python"] = self.GetPythonInfo()
 		
 	def GetWinNTInfo(self):
+		"""Get the Information, this method contains the Windows NT-specific logic."""
 		self.info["OS"] = platform.system()
 		self.info["OSVersion"] = self.GetWinNTVersion()
 		self.info["Distribution"] = self.GetWinNTProductInfo()
@@ -69,17 +78,22 @@ class OSInfo(object):
 		self.info["Python"] = self.GetPythonInfo()
 		
 	def GetPythonInfo(self):
+		"""Get Information about the python runtime."""
 		return {"implementation": platform.python_implementation(), "version": platform.python_version() }
 		
 	def GetWinNTProductInfo(self):
+		"""Get Information about the Windows NT Product,
+		a.k.a. the official Name like Windows 7"""
 		RegistryKey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, "SOFTWARE\Microsoft\Windows NT\CurrentVersion")
 		return _winreg.QueryValueEx(RegistryKey, "ProductName")+" "+_winreg.QueryValueEx(RegistryKey, "CSDVersion")
 		
 	def GetWinNTVersion(self):
+		"""Get the NT Version of an Windows System, e.g. 6.1 for Windows 7"""
 		RegistryKey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, "SOFTWARE\Microsoft\Windows NT\CurrentVersion")
 		return _winreg.QueryValueEx(RegistryKey, "CurrentVersion")
 		
 	def GetInfo(self):
+		"""Return the obtained information."""
 		return self.info
 		
 def run():
