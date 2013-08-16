@@ -53,6 +53,21 @@ moment, I'm working on support for a wider range of operating systems.</p>
 
 <pre><code>setup.py install
 </code></pre>
+
+<p>On ArchLinux, you can install OSDetect through the AUR using the package <a href="https://aur.archlinux.org/packages/python2-osdetect/">python2-osdetect</a>:</p>
+<pre><code># Using yaourt
+yaourt -S python2-osdetect
+# Or, do it manually without an AUR helper
+wget 'https://aur.archlinux.org/packages/py/python2-osdetect/python2-osdetect.tar.gz'
+tar xz python2-osdetect.tar.gz
+cd python2-osdetect
+makepkg ---clean --syncdeps --install
+cd ..
+rm -rf python2-osdetect
+# In one line
+wget -O- -q 'https://aur.archlinux.org/packages/py/python2-osdetect/python2-osdetect.tar.gz' | tar xz; cd python2-osdetect; makepkg -csi; cd ..; rm -rf python2-osdetect
+</code></pre>
+
         </section>
 
         <footer>
