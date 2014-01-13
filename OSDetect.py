@@ -29,7 +29,6 @@
 # 
 
 import sys
-import os
 import platform
 try:
 	import _winreg
