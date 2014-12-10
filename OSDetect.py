@@ -32,8 +32,13 @@ import sys
 import platform
 try:
 	import _winreg
+	ISCYGWIN=False
 except ImportError:
-	pass
+	try:
+		import cygwinreg as _winreg
+		ISCYGWIN=True
+	except ImportError:
+		pass
 
 class OSInfo(object):
 	"""Operating System Information object
@@ -75,21 +80,63 @@ class OSInfo(object):
 		self.info["Distribution"] = self.GetWinNTProductInfo()
 		self.info["Machine"] = platform.machine()
 		self.info["Python"] = self.GetPythonInfo()
+		self.info["Uptime"] = self.getWinNTUptime()
 		
 	def GetPythonInfo(self):
 		"""Get Information about the python runtime."""
 		return {"implementation": platform.python_implementation(), "version": platform.python_version() }
 		
+	def getWinNTUptime(self):
+		from uptime import uptime
+		seconds  = int(uptime())
+		days     = seconds/60/60/24
+		seconds -= days*60*60*24
+		hours    = seconds/60/60
+		seconds -= hours*60*60
+		minutes  = seconds/60
+		seconds -= minutes*60
+		up = {
+				"Days": days,
+				"Hours": hours,
+				"Minutes": minutes
+				}
+		up_str = u""
+		_DAYS = u" days"
+		_DAY = u" day"
+		_HOURS = u" hours"
+		_HOUR = u" hour"
+		_MINUTES = u" minutes"
+		_MINUTE = u" minute"
+		if up["Days"] > 1:
+			up_str += ", " + unicode(up["Days"]) + _DAYS
+		elif up["Days"] > 0:
+			up_str += ", " + unicode(up["Days"]) + _DAY
+		if up["Hours"] > 1:
+			up_str += ", " + unicode(up["Hours"])   + _HOURS
+		elif up["Hours"]   > 0:
+			up_str += ", " + unicode(up["Hours"])   + _HOUR
+		if up["Minutes"]   > 1:
+			up_str += ", " + unicode(up["Minutes"]) + _MINUTES
+		elif up["Minutes"] > 0:
+			up_str += ", " + unicode(up["Minutes"]) + _MINUTE
+		return up_str.lstrip(", ")
+		
 	def GetWinNTProductInfo(self):
 		"""Get Information about the Windows NT Product,
 		a.k.a. the official Name like Windows 7"""
 		RegistryKey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, "SOFTWARE\Microsoft\Windows NT\CurrentVersion")
-		return _winreg.QueryValueEx(RegistryKey, "ProductName")+" "+_winreg.QueryValueEx(RegistryKey, "CSDVersion")
+		if not ISCYGWIN:
+			return _winreg.QueryValueEx(RegistryKey, "ProductName")+" "+_winreg.QueryValueEx(RegistryKey, "CSDVersion")
+		else:
+			return _winreg.QueryValueEx(RegistryKey, "ProductName")[0]+" "+_winreg.QueryValueEx(RegistryKey, "CSDVersion")[0]
 		
 	def GetWinNTVersion(self):
 		"""Get the NT Version of an Windows System, e.g. 6.1 for Windows 7"""
 		RegistryKey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, "SOFTWARE\Microsoft\Windows NT\CurrentVersion")
-		return _winreg.QueryValueEx(RegistryKey, "CurrentVersion")
+		if not ISCYGWIN:
+			return _winreg.QueryValueEx(RegistryKey, "CurrentVersion")
+		else:
+			return _winreg.QueryValueEx(RegistryKey, "CurrentVersion")[0]
 		
 	def GetInfo(self):
 		"""Return the obtained information."""
