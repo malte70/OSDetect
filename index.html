@@ -3,80 +3,107 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
     <title>OSDetect by malte70</title>
   </head>
 
   <body>
-    <div id="container">
+    <header>
       <div class="inner">
+        <h1>OSDetect</h1>
+        <h2>Simple operating system detection method for Python</h2>
+        <a href="https://github.com/malte70/OSDetect" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
 
-        <header>
-          <h1>OSDetect</h1>
-          <h2>Simple operating system detection method for Python</h2>
-        </header>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="osdetect-readme" class="anchor" href="#osdetect-readme" aria-hidden="true"><span class="octicon octicon-link"></span></a>OSDetect README</h1>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/malte70/OSDetect/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/malte70/OSDetect/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/malte70/OSDetect" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h2>
-<a name="what-is-osdetect" class="anchor" href="#what-is-osdetect"><span class="octicon octicon-link"></span></a>What is OSDetect?</h2>
+<h2>
+<a id="what-is-osdetect" class="anchor" href="#what-is-osdetect" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is OSDetect?</h2>
 
 <p>OSDetect is a small python module which is able to get some information
 about your system and python implementation, like the Operating System
 or the hardware platform.</p>
 
 <h2>
-<a name="supported-operating-systems" class="anchor" href="#supported-operating-systems"><span class="octicon octicon-link"></span></a>Supported operating systems</h2>
+<a id="supported-operating-systems" class="anchor" href="#supported-operating-systems" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supported operating systems</h2>
 
-<p>As of now, only GNU/Linux, Mac OS X and Windows NT are supported. At the
+<p>As of now, only GNU/Linux, Mac OS X, Windows NT and Windows NT/Cygwin are supported. At the
 moment, I'm working on support for a wider range of operating systems.</p>
 
-<p>Note thst the information available on the different platforms may differ.</p>
+<p>Since version 1.1.0, Python 2 and Python 3 are both supported.</p>
+
+<p>Note that the information available on the different platforms may differ.</p>
 
 <h2>
-<a name="installation-instructions" class="anchor" href="#installation-instructions"><span class="octicon octicon-link"></span></a>Installation instructions</h2>
+<a id="installation-instructions" class="anchor" href="#installation-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation instructions</h2>
 
 <p>Since OSDetect uses setuptools, you simply need to run</p>
 
-<pre><code>setup.py install
+<pre><code>python setup.py install
 </code></pre>
 
-<p>On ArchLinux, you can install OSDetect through the AUR using the package <a href="https://aur.archlinux.org/packages/python2-osdetect/">python2-osdetect</a>:</p>
-<pre><code># Using yaourt
-yaourt -S python2-osdetect
-# Or, do it manually without an AUR helper
-wget 'https://aur.archlinux.org/packages/py/python2-osdetect/python2-osdetect.tar.gz'
-tar xz python2-osdetect.tar.gz
-cd python2-osdetect
-makepkg ---clean --syncdeps --install
-cd ..
-rm -rf python2-osdetect
-# In one line
-wget -O- -q 'https://aur.archlinux.org/packages/py/python2-osdetect/python2-osdetect.tar.gz' | tar xz; cd python2-osdetect; makepkg -csi; cd ..; rm -rf python2-osdetect
+<h2>
+<a id="command-line-usage" class="anchor" href="#command-line-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command Line Usage</h2>
+
+<p>OSDetect includes a function which is executed if the module is directly called. So give it
+a try and run:</p>
+
+<pre><code>python -m OSDetect
 </code></pre>
 
+<h2>
+<a id="example-uses-of-the-module" class="anchor" href="#example-uses-of-the-module" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example uses of the module</h2>
+
+<pre><code># Get information on a GNU/Linux system
+print(OSDetect.info)
+</code></pre>
+
+<p>On a ArchLinux box, this results in:</p>
+
+<pre><code>{
+    'Python': {
+        'version': '3.4.2',
+        'implementation': 'CPython'
+    },
+    'Machine': 'i686',
+    'OSVersion': '3.14.30-1-lts',
+    'Distribution': 'arch Arch Linux',
+    'OS': 'Linux'
+}
+</code></pre>
         </section>
 
-        <footer>
-          OSDetect is maintained by <a href="https://github.com/malte70">malte70</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+        <aside id="sidebar">
+          <a href="https://github.com/malte70/OSDetect/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/malte70/OSDetect/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
 
-        
+          <p class="repo-owner"><a href="https://github.com/malte70/OSDetect"></a> is maintained by <a href="https://github.com/malte70">malte70</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
       </div>
     </div>
+
+  
   </body>
 </html>
