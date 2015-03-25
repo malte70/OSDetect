@@ -80,13 +80,13 @@ class OSInfo(object):
 		self.info["Distribution"] = self.GetWinNTProductInfo()
 		self.info["Machine"] = platform.machine()
 		self.info["Python"] = self.GetPythonInfo()
-		self.info["Uptime"] = self.getWinNTUptime()
+		self.info["Uptime"] = self.GetWinNTUptime()
 		
 	def GetPythonInfo(self):
 		"""Get Information about the python runtime."""
 		return {"implementation": platform.python_implementation(), "version": platform.python_version() }
 		
-	def getWinNTUptime(self):
+	def GetWinNTUptime(self):
 		from uptime import uptime
 		seconds  = int(uptime())
 		days     = seconds/60/60/24
@@ -107,11 +107,11 @@ class OSInfo(object):
 		_HOUR = u" hour"
 		_MINUTES = u" minutes"
 		_MINUTE = u" minute"
-		if up["Days"] > 1:
-			up_str += ", " + unicode(up["Days"]) + _DAYS
-		elif up["Days"] > 0:
-			up_str += ", " + unicode(up["Days"]) + _DAY
-		if up["Hours"] > 1:
+		if up["Days"]      > 1:
+			up_str += ", " + unicode(up["Days"])    + _DAYS
+		elif up["Days"]    > 0:
+			up_str += ", " + unicode(up["Days"])    + _DAY
+		if up["Hours"]     > 1:
 			up_str += ", " + unicode(up["Hours"])   + _HOURS
 		elif up["Hours"]   > 0:
 			up_str += ", " + unicode(up["Hours"])   + _HOUR
