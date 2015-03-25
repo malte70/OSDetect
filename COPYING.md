@@ -1,4 +1,4 @@
-Copyright (c) 2012-2013 Malte Bublitz, https://malte-bublitz.de
+Copyright (c) 2012-2015 Malte Bublitz, http://malte-bublitz.de
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,

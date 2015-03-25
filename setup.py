@@ -3,7 +3,7 @@
 #
 # setup.py script for OSDetect
 #
-# Copyright (c) 2012-2013 Malte Bublitz, https://malte-bublitz.de
+# Copyright (c) 2012-2015 Malte Bublitz, https://malte-bublitz.de
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -33,7 +33,7 @@ from distutils.core import setup
 
 setup(
        name         = 'OSDetect',
-       version      = '1.0.3',
+       version      = '1.1.0',
        description  = 'A simple helper module to get details on the current operating system platorm.',
        author       = 'Malte Bublitz',
        author_email = 'me@malte-bublitz.de',

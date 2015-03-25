@@ -142,14 +142,16 @@ class OSInfo(object):
 		"""Return the obtained information."""
 		return self.info
 		
+_info = OSInfo()
+info = _info.GetInfo()
+
 def run():
-	_info = OSInfo()
-	info = _info.GetInfo()
-	print "Operating System:",info["OS"]
-	print "Operating System Version:",info["OSVersion"]
-	print "Distribution:",info["Distribution"]
-	print "Machine:",info["Machine"]
-	print "Python:",info["Python"]["implementation"],info["Python"]["version"]
+	global info
+	print("Operating System: "+info["OS"])
+	print("Operating System Version: "+info["OSVersion"])
+	print("Distribution: "+info["Distribution"])
+	print("Machine: "+info["Machine"])
+	print("Python: "+info["Python"]["implementation"]+" "+info["Python"]["version"])
 
 if __name__=='__main__':
 	run()
