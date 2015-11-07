@@ -52,6 +52,8 @@ class OSInfo(object):
 		# Linux detection
 		if sys.platform.startswith("linux"):
 			self.GetLinuxInfo()
+		elif sys.platform.startswith("freebsd"):
+			self.GetFreeBSDInfo()
 		elif sys.platform.startswith("win") or sys.platform.startswith("cygwin"):
 			self.GetWinNTInfo()
 		elif sys.platform.startswith("darwin"):
@@ -59,6 +61,14 @@ class OSInfo(object):
 		
 	def GetLinuxInfo(self):
 		"""Get the Information, this method contains the GNU/Linux-specific logic."""
+		self.info["OS"] = platform.system()
+		self.info["OSVersion"] = platform.uname()[2]
+		self.info["Distribution"] = " ".join(platform.dist())
+		self.info["Machine"] = platform.machine()
+		self.info["Python"] = self.GetPythonInfo()
+		
+	def GetFreeBSDInfo(self):
+		"""Get the Information, this method contains the FreeBSD-specific logic."""
 		self.info["OS"] = platform.system()
 		self.info["OSVersion"] = platform.uname()[2]
 		self.info["Distribution"] = " ".join(platform.dist())
