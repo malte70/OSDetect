@@ -1,12 +1,10 @@
-OSDetect author information
-===========================
+# OSDetect Authors
 
-Malte Bublitz
--------------
+## Malte Bublitz
 
- * Personal website: https://malte-bublitz.de
- * EMail: me@malte-bublitz.de
- * Location: Bergkamen, Germany
+ * Personal website: http://malte70.bplaced.net
+ * EMail: malte70 [:AT:] tuta [:DOT:] io
+ * Location: Dortmund, Germany
  * Twitter: @malte70
- * github: malte70
- * github page: http://malte70.github.io
+ * Github: malte70
+
