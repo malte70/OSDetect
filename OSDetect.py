@@ -163,20 +163,49 @@ class OSInfo(object):
 				platform.uname().version.split(".")[:2]
 			)
 		
-	def GetInfo(self):
+	def getInfo(self):
 		"""Return the obtained information."""
 		return self.info
 		
-_info = OSInfo()
-info = _info.GetInfo()
+	def get(self, key):
+		value = None
+		if not "." in key:
+			if key in self.info.keys():
+				value = self.info[key]
+		else:
+			if key.split(".")[0] in self.info.keys():
+				_sub = self.info[key.split(".")[0]]
+				if key.split(".")[1] in _sub.keys():
+					value = _sub[key.split(".")[1]]
+		
+		return value
+		
+	def getOS(self):
+		return self.get("OS")
+		
+	def getOSVersion(self):
+		return self.get("OSVersion")
+		
+	def getDistribution(self):
+		return self.get("Distribution")
+		
+	def getMachine(self):
+		return self.get("Machine")
+		
+	def getPythonImplementation(self):
+		return self.get("Python.Implementation")
+		
+	def getPythonVersion(self):
+		return self.get("Python.Version")
+		
+info = OSInfo()
 
 def run():
 	global info
-	print("Operating System: "+info["OS"])
-	print("Operating System Version: "+info["OSVersion"])
-	print("Distribution: "+info["Distribution"])
-	print("Machine: "+info["Machine"])
-	print("Python: "+info["Python"]["implementation"]+" "+info["Python"]["version"])
-
+	print("Operating System: "+info.getOS()+" version "+info.getOSVersion())
+	print("Distribution:     "+info.getDistribution())
+	print("Machine:          "+info.getMachine())
+	print("Python:           "+info.getPythonImplementation()+" "+info.getPythonVersion())
+	
 if __name__=='__main__':
 	run()
