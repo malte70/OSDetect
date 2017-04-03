@@ -93,7 +93,10 @@ class OSInfo(object):
 		
 	def GetPythonInfo(self):
 		"""Get Information about the python runtime."""
-		return {"implementation": platform.python_implementation(), "version": platform.python_version() }
+		return {
+			"Implementation": platform.python_implementation(),
+			"Version": platform.python_version()
+		}
 		
 	def GetWinNTUptime(self):
 		try:
