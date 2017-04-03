@@ -200,7 +200,7 @@ class OSInfo(object):
 		
 info = OSInfo()
 
-def run():
+def main():
 	global info
 	print("Operating System: "+info.getOS()+" version "+info.getOSVersion())
 	print("Distribution:     "+info.getDistribution())
@@ -208,4 +208,4 @@ def run():
 	print("Python:           "+info.getPythonImplementation()+" "+info.getPythonVersion())
 	
 if __name__=='__main__':
-	run()
+	main()
