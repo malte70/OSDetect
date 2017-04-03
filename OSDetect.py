@@ -10,6 +10,7 @@
 # See COPYING.md for details.
 # 
 
+import os
 import sys
 import platform
 try:
@@ -43,9 +44,25 @@ class OSInfo(object):
 		
 	def GetLinuxInfo(self):
 		"""Get the Information, this method contains the GNU/Linux-specific logic."""
+		
+		# Parse /etc/os-release
+		if not os.path.exists("/etc/os-release"):
+			os_release = None
+		else:
+			os_release = {}
+			for _l in open("/etc/os-release").read().split("\n"):
+				if not len(_l):
+					continue
+				_k, _v = _l.split("=")
+				_v = _v.strip("\"")
+				os_release[_k] = _v
+		
 		self.info["OS"] = platform.system()
 		self.info["OSVersion"] = platform.uname()[2]
-		self.info["Distribution"] = " ".join(platform.dist())
+		if os_release:
+			self.info["Distribution"] = os_release["NAME"]
+		else:
+			self.info["Distribution"] = " ".join(platform.dist())
 		self.info["Machine"] = platform.machine()
 		self.info["Python"] = self.GetPythonInfo()
 		
