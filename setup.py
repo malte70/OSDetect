@@ -33,7 +33,7 @@ from distutils.core import setup
 
 setup(
        name         = 'OSDetect',
-       version      = '1.1.1',
+       version      = '1.2',
        description  = 'A simple helper module to get details on the current operating system platorm.',
        author       = 'Malte Bublitz',
        author_email = 'malte70@tuta.io',
