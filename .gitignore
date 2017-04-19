@@ -61,3 +61,7 @@ target/
 # Vim swap files
 *.sw[po]
 
+# HTML files (which are only rendered versions
+# of Markdown files)
+*.html
+
