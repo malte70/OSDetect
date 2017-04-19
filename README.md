@@ -36,28 +36,32 @@ a try and run:
 Example uses of the module
 --------------------------
 
-	# Get a dict containing all gathered information
-	from OSDetect import info as os_info
-	print(os_info.getInfo())
-	
-	# Get a specific value
-	print(os_info.getDistribution())
-	# or using the dict key (a dot means a dict containing a dict)
-	print(os_info.get("Python.Version"))
+```python
+# Get a dict containing all gathered information
+from OSDetect import info as os_info
+print(os_info.getInfo())
+
+# Get a specific value
+print(os_info.getDistribution())
+# or using the dict key (a dot means a dict containing a dict)
+print(os_info.get("Python.Version"))
+```
 
 On a ArchLinux system, it looks like this:
 
-	{
-		'Python': {
-			'Version': '3.6.0',
-			'Implementation': 'CPython'
-		},
-		'Machine': 'i686',
-		'OS': 'Linux',
-		'OSVersion': '4.10.6-1-ARCH',
-		'Distribution': 'Arch Linux'
-	}
-	
-	'ArchLinux'
-	'3.6.0'
+```python
+{
+	'Python': {
+		'Version': '3.6.0',
+		'Implementation': 'CPython'
+	},
+	'Machine': 'i686',
+	'OS': 'Linux',
+	'OSVersion': '4.10.6-1-ARCH',
+	'Distribution': 'Arch Linux'
+}
+
+'ArchLinux'
+'3.6.0'
+```
 
