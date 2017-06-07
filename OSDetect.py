@@ -198,6 +198,16 @@ class OSInfo(object):
 	def getPythonVersion(self):
 		return self.get("Python.Version")
 		
+	def hasGUI(self):
+		if self.getOS() in ["Darwin", "Windows"]:
+			# On OS X and Windows NT, a GUI is always present
+			return True
+			
+		elif self.getOS() in ["Linux", "FreeBSD"]:
+			# On GNU/Linux and FreeBSD check for presence of
+			# $DISPLAY environment variable
+			return "DISPLAY" in os.environ.keys()
+		
 info = OSInfo()
 
 def main():
