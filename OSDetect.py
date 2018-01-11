@@ -211,7 +211,6 @@ class OSInfo(object):
 info = OSInfo()
 
 def main():
-	global info
 	print("Operating System: "+info.getOS()+" version "+info.getOSVersion())
 	print("Distribution:     "+info.getDistribution())
 	print("Machine:          "+info.getMachine())
