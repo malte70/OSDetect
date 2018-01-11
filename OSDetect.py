@@ -1,14 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# OSDetect.py
-#    A simple solution to detect the operating system, including detection of wine
-#
-# Copyright (c) 2012-2016 Malte Bublitz, https://malte70.github.io
-# All rights reserved.
 # 
-# See COPYING.md for details.
+# Copyright (c) 2012-2017, Malte Bublitz <https://malte70.de>
 # 
+
+__doc__ = """A small helper to get some information about your system and
+python implementation, like the Operating System or the hardware platform.
+
+	# Get a dict containing all gathered information
+	from OSDetect import info as os_info
+	print(os_info.getInfo())
+
+	# Get a specific value
+	print(os_info.getDistribution())
+	# or using the dict key (a dot means a dict containing a dict)
+	print(os_info.get("Python.Version"))
+
+"""
 
 import os
 import sys
