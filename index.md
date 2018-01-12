@@ -1,3 +1,7 @@
+---
+title: OSDetect
+---
+
 What is OSDetect?
 -----------------
 
