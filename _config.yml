@@ -6,3 +6,9 @@ theme: jekyll-theme-slate
 
 gems:
   - jekyll-mentions
+  - jekyll-analytics
+
+jekyll_analytics:
+  Piwik:
+    url: app.ancistrus.de/piwik
+    siteId: "3"
