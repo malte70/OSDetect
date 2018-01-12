@@ -5,17 +5,21 @@
 #
 
 language: python
+
 python:
-	- "2.7"
-	- "3.5"
-	- "3.6"
-	- "nightly"
+    - "2.7"
+    - "3.5"
+    - "3.6"
+    - "nightly"
+
 branches:
-	only:
-		- master
+    only:
+        - master
+
 install:
-	- python setup.py install
+    - python setup.py install
+
 script:
-	- pytest
-	- python -m OSDetect
+    - pytest
+    - python -m OSDetect
 
