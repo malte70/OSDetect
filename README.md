@@ -1,5 +1,5 @@
-OSDetect README
-===============
+OSDetect [![Build Status](https://travis-ci.org/malte70/OSDetect.svg?branch=master)](https://travis-ci.org/malte70/OSDetect)
+========
 
 What is OSDetect?
 -----------------
