@@ -1,5 +1,7 @@
-OSDetect README
-===============
+OSDetect
+========
+
+[![Build Status](https://travis-ci.org/malte70/OSDetect.svg?branch=master)](https://travis-ci.org/malte70/OSDetect)
 
 What is OSDetect?
 -----------------
@@ -36,20 +38,32 @@ a try and run:
 Example uses of the module
 --------------------------
 
-	# Get information on a GNU/Linux system
-	print(OSDetect.info)
+```python
+# Get a dict containing all gathered information
+from OSDetect import info as os_info
+print(os_info.getInfo())
 
-On a ArchLinux box, this results in:
+# Get a specific value
+print("Distribution:   "+os_info.getDistribution())
+# or using the dict key (a dot means a dict containing a dict)
+print("Python.Version: "+os_info.get("Python.Version"))
+```
 
-	{
-		'Python': {
-			'version': '3.4.2',
-			'implementation': 'CPython'
-		},
-		'Machine': 'i686',
-		'OSVersion': '3.14.30-1-lts',
-		'Distribution': 'arch Arch Linux',
-		'OS': 'Linux'
+On a ArchLinux system, it looks like this:
+
+```python
+{
+	'Distribution': 'Arch Linux',
+	'Machine': 'i686',
+	'OS': 'Linux',
+	'OSVersion': '4.14.11-1.0-ARCH',
+	'Python': {
+		'Implementation': 'CPython',
+		'Version': '3.6.4'
 	}
+}
 
+ArchLinux
+Python.Version: 3.6.4
+```
 
