@@ -37,7 +37,10 @@ setup(
        description  = 'A simple helper module to get details on the current operating system platorm.',
        author       = 'Malte Bublitz',
        author_email = 'malte70@tuta.io',
-       url          = 'https://github.com/malte70/OSDetect',
+       url          = 'https://malte70.github.io/OSDetect/',
+       project_urls = {
+                       'GitHub': 'https://github.com/malte70/OSDetect'
+                      },
        download_url = 'https://github.com/malte70/OSDetect',
        py_modules   = ['OSDetect'],
        license      = 'License :: OSI Approved :: BSD License',
