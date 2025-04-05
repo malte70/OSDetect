@@ -5,34 +5,52 @@ title: OSDetect
 What is OSDetect?
 -----------------
 
-OSDetect is a small python module which is able to get some information
-about your system and python implementation, like the Operating System
-or the hardware platform.
+OSDetect is a small python module which is able to get
+some information about your system and your Python
+installation, like the Operating System or the CPU
+architecture.
 
 Supported operating systems
 ---------------------------
 
-As of now, only GNU/Linux, Mac OS X, Windows NT and Windows NT/Cygwin are supported. At the
-moment, I'm working on support for a wider range of operating systems.
+The following iperating systems are supported:
 
-Since version 1.1.0, Python 2 and Python 3 are both supported.
+- GNU/Linux
+- mac OS
+- FreeBSD
+- Windows
+- Windows/Cygwin
 
-Note that the information available on the different platforms may differ.
+Please keep in mind that the available information
+may differ on the different platforms.
 
 Installation instructions
 -------------------------
 
-Since OSDetect uses setuptools, you simply need to run
+You can install OSDetect from PyPI using pip:
 
-	python setup.py install
+```sh
+pip install OSDetect
+```
+
+Alternatively clone the Git repository and install
+directly from the source code:
+
+```sh
+git clone "https://github.com/malte70/OSDetect"
+cd OSDetect
+pip install .
+```
 
 Command Line Usage
 ------------------
 
-OSDetect includes a function which is executed if the module is directly called. So give it
-a try and run:
+OSDetect includes a function which is executed if the
+module is directly executed. So give it a try and run:
 
-	python -m OSDetect
+```sh
+python -m OSDetect
+```
 
 Example uses of the module
 --------------------------
@@ -48,21 +66,17 @@ print("Distribution:   "+os_info.getDistribution())
 print("Python.Version: "+os_info.get("Python.Version"))
 ```
 
-On a ArchLinux system, it looks like this:
+The output of course depends on your system, but it
+should look similar to this:
 
-```python
-{
-	'Distribution': 'Arch Linux',
-	'Machine': 'i686',
-	'OS': 'Linux',
-	'OSVersion': '4.14.11-1.0-ARCH',
-	'Python': {
-		'Implementation': 'CPython',
-		'Version': '3.6.4'
-	}
-}
+```
+{'Distribution': 'Mac OS X 15.4',
+ 'Machine': 'arm64',
+ 'OS': 'Darwin',
+ 'OSVersion': '24.4.0',
+ 'Python': {'Implementation': 'CPython', 'Version': '3.13.2'}}
 
-ArchLinux
-Python.Version: 3.6.4
+Distribution:   Mac OS X 15.4
+Python.Version: 3.13.2
 ```
 
