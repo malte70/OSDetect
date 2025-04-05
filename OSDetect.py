@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# 
-# Copyright (c) 2012-2017, Malte Bublitz <https://malte70.de>
-# 
+# SPDX-License-Identifier: MIT
 
 __doc__ = """A small helper to get some information about your system and
 python implementation, like the Operating System or the hardware platform.
