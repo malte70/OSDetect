@@ -21,9 +21,19 @@ Note that the information available on the different platforms may differ.
 Installation instructions
 -------------------------
 
-Since OSDetect uses setuptools, you simply need to run
+You can install OSDetect from PyPI using pip:
 
-	python setup.py install
+```
+pip install OSDetect
+```
+
+Alternatively clone this repository and install directly from the source code:
+
+```
+git clone https://github.com/malte70/OSDetect
+cd OSDetect
+pip install .
+```
 
 Command Line Usage
 ------------------

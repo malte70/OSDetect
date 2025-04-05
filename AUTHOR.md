@@ -1,10 +1,9 @@
-# OSDetect Authors
+# OSDetect Author
 
 ## Malte Bublitz
 
- * Personal website: http://malte70.bplaced.net
- * EMail: malte70 [:AT:] tuta [:DOT:] io
- * Location: Dortmund, Germany
- * Twitter: @malte70
- * Github: malte70
+ * Personal website: https://malte70.de
+ * EMail: `malte [:AT:] rolltreppe3 [:DOT:] de`
+ * GitHub: [malte70](https://github.com/malte70)
+ * Mastodon: [@malte70@ruhr.social](https://ruhr.social/@malte70)
 

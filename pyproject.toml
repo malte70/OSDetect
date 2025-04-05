@@ -1,0 +1,38 @@
+# 
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+# (More links in Links.md)
+# 
+
+[build-system]
+# requires = []
+# requires = ["hatchling >= 1.26"]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "OSDetect"
+version = "1.2.1"
+requires-python = ">= 3.8"
+authors = [{name = "Malte Bublitz"}]
+description = "A simple helper module to get details on the current operating system platorm."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICEN[CS]E*", "AUTHORS*"]
+# keywords = []
+
+classifiers = [
+	"Development Status :: 4 - Beta",
+	"Intended Audience :: Developers",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: Microsoft :: Windows",
+	"Operating System :: POSIX :: Linux",
+	"Operating System :: MacOS :: MacOS X",
+	"Programming Language :: Python",
+	"Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[project.urls]
+Homepage = "https://malte70.github.io/OSDetect/"
+Repository = "https://github.com/malte70/OSDetect"
+Issues = "https://github.com/malte70/OSDetect/issues"
+
